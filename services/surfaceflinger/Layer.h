@@ -472,7 +472,7 @@ protected:
 
     Rect reduce(const Rect& win, const Region& exclude) const;
 
-private:
+public:
     // Interface implementation for SurfaceFlingerConsumer::ContentsChangedListener
     virtual void onFrameAvailable(const BufferItem& item) override;
     virtual void onFrameReplaced(const BufferItem& item) override;
@@ -528,7 +528,7 @@ private:
             mTransactionIsApplied = true;
         }
 
-    private:
+    public:
         const uint64_t mFrameNumber;
         std::atomic<bool> mFrameIsAvailable;
         std::atomic<bool> mTransactionIsApplied;
@@ -560,7 +560,7 @@ private:
     uint32_t getEffectiveScalingMode() const;
 public:
     void notifyAvailableFrames();
-private:
+public:
 
     // -----------------------------------------------------------------------
 

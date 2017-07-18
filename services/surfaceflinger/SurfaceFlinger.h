@@ -87,8 +87,8 @@ enum {
 };
 
 class SurfaceFlinger : public BnSurfaceComposer,
-                       private IBinder::DeathRecipient,
-                       private HWComposer::EventHandler
+                       public IBinder::DeathRecipient,
+                       public HWComposer::EventHandler
 {
 public:
 #ifdef QTI_BSP
@@ -149,7 +149,7 @@ public:
         return *mRenderEngine;
     }
 
-private:
+public:
     friend class Client;
     friend class DisplayEventConnection;
     friend class Layer;
@@ -482,7 +482,7 @@ private:
      void disableHardwareVsync(bool makeUnavailable);
 public:
      void resyncWithRateLimit();
-private:
+public:
 
     /* ------------------------------------------------------------------------
      * Debugging & dumpsys

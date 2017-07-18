@@ -70,7 +70,7 @@ class IProducerListener;
  */
 class VirtualDisplaySurface : public DisplaySurface,
                               public BnGraphicBufferProducer,
-                              private ConsumerBase {
+                              public ConsumerBase {
 public:
 #ifdef QTI_BSP
     friend class ExVirtualDisplaySurface;
@@ -96,7 +96,7 @@ public:
     virtual void resizeBuffers(const uint32_t w, const uint32_t h);
     virtual const sp<Fence>& getClientTargetAcquireFence() const override;
 
-private:
+public:
     enum Source {SOURCE_SINK = 0, SOURCE_SCRATCH = 1};
 
     virtual ~VirtualDisplaySurface();
